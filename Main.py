@@ -406,7 +406,7 @@ class MyGame(arcade.Window):
         self.button_list.append(play_button)
         play_button = Mul(60, 570, self.resume_program)
         self.button_list.append(play_button)
-        play_button = div(60, 570, self.resume_program)
+        play_button = Div(60, 570, self.resume_program)
         self.button_list.append(play_button)
         play_button = Mod(60, 570, self.resume_program)
         self.button_list.append(play_button)

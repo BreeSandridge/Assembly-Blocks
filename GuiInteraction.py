@@ -1,4 +1,5 @@
 import arcade
+import copy
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
@@ -32,7 +33,8 @@ class MyGame(arcade.Window):
                 button_dragged.position_y = button_static.y+button_static.height-1
 
     def duplicateButton(button):
-        buttonNew = NewButtons()
+        buttonNew = copy.deepcopy(button)
+        #call this if ctrl+c (identify the button), ctrl+v (actually implement) or use some other way
 
     def whichToClick(button_dragged, buttonList):
         for button in buttonList:

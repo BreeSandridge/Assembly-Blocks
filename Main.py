@@ -1,10 +1,11 @@
 import arcade
 import random
 import os
+import GuiInteraction
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "GUI Text Buton Example"
+SCREEN_TITLE = "GUI Text Button Example"
 
 class TextButton:
     """ Text-based button """
@@ -416,8 +417,6 @@ class MyGame(arcade.Window):
         os.chdir(file_path)
 
         arcade.set_background_color(arcade.color.AMAZON)
-
-
 
     def setup(self):
         # Create our on-screen GUI buttons

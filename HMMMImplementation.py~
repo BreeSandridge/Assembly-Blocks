@@ -1,0 +1,6 @@
+from CommandTypes import *
+
+cmd1 = CommandTypes.HALT
+
+if cmd1 is CommandTypes.HALT:
+    print("It's halt")

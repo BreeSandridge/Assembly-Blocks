@@ -4,37 +4,37 @@ from enum import Enum
 class CommandTypes(Enum):
 
     # System Instructions
-    HALT = 0
-    READ = 1
-    WRITE = 2
-    NOP = 3
+    HALT = auto()
+    READ = auto()
+    WRITE = auto()
+    NOP = auto()
 
     # Setting Register Data
-    SETN = 4
-    ADDN = 5
-    COPY = 6
+    SETN = auto()
+    ADDN = auto()
+    COPY = auto()
 
     # Arithmetic
-    ADD = 7
-    SUB = 8
-    NEG = 9
-    MUL = 10
-    DIV = 11
-    MOD = 12
+    ADD = auto()
+    SUB = auto()
+    NEG = auto()
+    MUL = auto()
+    DIV = auto()
+    MOD = auto()
 
     # Jumps
-    JUMPN = 13
-    JUMPR = 14
-    JEQZN = 15
-    JNEZN = 16
-    JGTZN = 17
-    JLTZN = 18
-    CALLN = 19
+    JUMPN = auto()
+    JUMPR = auto()
+    JEQZN = auto()
+    JNEZN = auto()
+    JGTZN = auto()
+    JLTZN = auto()
+    CALLN = auto()
 
     # Interacting with memory (RAM)
-    PUSHR = 20
-    POPR = 21
-    LOADN = 22
-    STOREN = 23
-    LOADR = 24
-    STORER = 25
+    PUSHR = auto()
+    POPR = auto()
+    LOADN = auto()
+    STOREN = auto()
+    LOADR = auto()
+    STORER = auto()

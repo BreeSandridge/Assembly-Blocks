@@ -1,6 +1,5 @@
+"""
 import Command
-
-
 def lex(root):
     commands = []
 
@@ -9,3 +8,10 @@ def lex(root):
         root = root.below
 
     return commands
+"""
+def getTokens(path):
+    raw = open(path)
+    lines = raw.split("\n")
+    words = sum(((line.split(" ")+[";"]) for line in lines), [])
+    return words
+

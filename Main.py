@@ -4,7 +4,7 @@ import os
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "GUI Text Buton Example"
+SCREEN_TITLE = "hjgjh"
 
 class TextButton:
     """ Text-based button """

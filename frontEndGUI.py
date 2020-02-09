@@ -1,11 +1,10 @@
 from arcade import TextButton
 from arcade.GUI import *
 import os
-
 import arcade
 
+arcade.open_window(600, 600, "Assembly Block")
 arcade.set_background_color(arcade.color.WHITE)
-
 
 class SystemInstructions(arcade.Window):
     def __init__(self):

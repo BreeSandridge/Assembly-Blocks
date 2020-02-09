@@ -1,0 +1,13 @@
+setn 4 1
+setn 1 2
+setn 2 2
+mul 3 2 2
+sub 3 3 1
+jgtzn 3 10
+mod 5 1 2
+jeqzn 5 11
+add 2 2 4
+jumpn 3
+write 1
+add 1 1 4
+jumpn 2

@@ -5,7 +5,8 @@ import GuiInteraction
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "GUI Text Button Example"
+SCREEN_TITLE = "hjgjh"
+
 
 class TextButton:
     """ Text-based button """
@@ -411,7 +412,7 @@ class MyGame(arcade.Window):
         super().__init__(width, height, title)
 
         # Set the working directory (where we expect to find files) to the same
-        # directory this .py file is in. You can leave this out of your own
+        # director this .py file is in. You can leave this out of your own
         # code, but it is needed to easily run the examples using "python -m"
         # as mentioned at the top of this program.
         file_path = os.path.dirname(os.path.abspath(__file__))
@@ -447,11 +448,11 @@ class MyGame(arcade.Window):
 
         if Instructions.pressed:
             instructions.visible = True
-            halt = Halt(60, 570, self.resume_program)
+            halt = Halt((.075 * SCREEN_WIDTH), (SCREEN_HEIGHT - 570), self.resume_program)
             self.button_list.append(halt)
-            read = Read(60, 570, self.resume_program)
+            read = Read((.212 * SCREEN_WIDTH), (SCREEN_HEIGHT - 520), self.resume_program)
             self.button_list.append(read)
-            write = Write(60, 570, self.resume_program)
+            write = Write(280, 570, self.resume_program)
             self.button_list.append(write)
             nop = Nop(60, 570, self.resume_program)
             self.button_list.append(nop)

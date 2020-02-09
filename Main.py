@@ -436,7 +436,7 @@ class MyGame(arcade.Window):
         self.button_list.append(play_button)
 
         if Instructions:
-            self.visible = True
+            play_button.visible = True
             play_button = Halt(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Read(60, 570, self.resume_program)
@@ -447,7 +447,7 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
         if Data:
-            self.visible = True
+            play_button.visible = True
             play_button = Setn(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Addn(60, 570, self.resume_program)
@@ -456,7 +456,7 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
         if Arithmetic:
-            self.visible = True
+            play_button.visible = True
             play_button = Add(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Sub(60, 570, self.resume_program)
@@ -471,7 +471,7 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
         if Jumps:
-            self.visible = True
+            play_button.visible = True
             play_button = Jumpn(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Jumpr(60, 570, self.resume_program)
@@ -488,7 +488,7 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
         if Memory:
-            self.visible = True
+            play_button.visible = True
             play_button = Loadn(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Storen(60, 570, self.resume_program)
@@ -499,31 +499,31 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
     def on_draw_instructions(self):
-      if self.visible:
+      if play_button.visible:
           arcade.start_render()
           for button in self.button_list:
               button.draw()
 
     def on_draw_data(self):
-      if self.visible:
+      if play_button.visible:
           arcade.start_render()
           for button in self.button_list:
               button.draw()
 
     def on_draw_arithmetic(self):
-      if self.visible:
+      if play_button.visible:
           arcade.start_render()
           for button in self.button_list:
               button.draw()
 
     def on_draw_jumps(self):
-      if self.visible:
+      if play_button.visible:
           arcade.start_render()
           for button in self.button_list:
               button.draw()
 
     def on_draw_memory(self):
-      if self.visible:
+      if play_button.visible:
           arcade.start_render()
           for button in self.button_list:
               button.draw()

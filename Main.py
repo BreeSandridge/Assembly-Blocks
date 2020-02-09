@@ -1,10 +1,12 @@
 import arcade
 import random
 import os
+import GuiInteraction
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 SCREEN_TITLE = "hjgjh"
+
 
 class TextButton:
     """ Text-based button """
@@ -418,85 +420,95 @@ class MyGame(arcade.Window):
 
         arcade.set_background_color(arcade.color.AMAZON)
 
-
-
     def setup(self):
         # Create our on-screen GUI buttons
         self.button_list = []
 
+        # def on_draw_inital_buttons(self):
+        # arcade.start_render()
         instructions = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
-        self.button_list.append(play_button)
+        self.button_list.append(instructions)
+        # instructions.draw()
         data = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
-        self.button_list.append(play_button)
+        self.button_list.append(data)
+        # data.draw()
         arithmetic = Arithmetic((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 130), self.resume_program)
-        self.button_list.append(play_button)
+        self.button_list.append(arithmetic)
+        # arithmetic.draw()
         jumps = Jumps((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 180), self.resume_program)
-        self.button_list.append(play_button)
+        self.button_list.append(jumps)
+        # jumps.draw()
         memory = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
-        self.button_list.append(play_button)
+        self.button_list.append(memory)
+        # memory.draw()
+    def on_draw_inital_buttons(self):
+        arcade.start_render()
+        for button in self.button_list:
+            button.draw()
 
-        if Instructions:
+        if Instructions.pressed:
             instructions.visible = True
             halt = Halt(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(halt)
             read = Read(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(read)
             write = Write(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(write)
             nop = Nop(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(nop)
 
-        if Data:
+        if Data.pressed:
             data.visible = True
             setn = Setn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(setn)
             addn = Addn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(addn)
             copy = Copy(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(copy)
 
-        if Arithmetic:
+        if Arithmetic.pressed:
             arithmetic.visible = True
             add = Add(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(add)
             sub = Sub(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(sub)
             neg = Neg(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(neg)
             mul = Mul(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(mul)
             div = Div(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(div)
             mod = Mod(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(mod)
 
-        if Jumps:
+        if Jumps.pressed:
             jumps.visible = True
             jumpn = Jumpn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(jumpn)
             jumpr = Jumpr(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(jumpr)
             jeqzn = Jeqzn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(jeqzn)
             jnezn = Jnezn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(jnezn)
             jgtzn = Jgtzn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(jgtzn)
             jltzn = Jltzn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(jltzn)
             calln = Calln(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(calln)
 
-        if Memory:
+        if Memory.pressed:
             memory.visible = True
             loadn = Loadn(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(loadn)
             storen = Storen(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(storen)
             loadr = Loadr(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(loadr)
             storer = Storer(60, 570, self.resume_program)
-            self.button_list.append(play_button)
+            self.button_list.append(storer)
+
 
     def on_draw_instructions(self):
         arcade.start_render()

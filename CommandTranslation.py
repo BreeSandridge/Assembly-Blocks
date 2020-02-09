@@ -120,4 +120,5 @@ def numToCmd(n):
     elif a == 3:
         return Command(CommandTypes.STOREN, b, e)
     elif a == 4:
+        pass
         

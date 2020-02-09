@@ -3,8 +3,8 @@ from Command import *
 
 def addZeros(numString, maxLength):
     temp = numString
-    while numString.len() < maxLength:
-        temp = "0" + numString
+    while len(temp) < maxLength:
+        temp = "0" + temp
 
     return temp
 
@@ -65,7 +65,7 @@ def cmdToNum(cmd):
         return int("1001" + addZeros(bin(cmd.args[0]), 4).replace("0b", "") + addZeros(bin(cmd.args[1]).replace("0b", ""), 4) + addZeros(bin(cmd.args[2]).replace("0b", ""), 4), 2)
     elif cmd.commandType == CommandTypes.MOD:
         #1010 XXXX YYYY ZZZZ
-        return int("1001" + addZeros(bin(cmd.args[0]), 4).replace("0b", "") + addZeros(bin(cmd.args[1]).replace("0b", ""), 4) + addZeros(bin(cmd.args[2]).replace("0b", ""), 4), 2)
+        return int("1010" + addZeros(bin(cmd.args[0]), 4).replace("0b", "") + addZeros(bin(cmd.args[1]).replace("0b", ""), 4) + addZeros(bin(cmd.args[2]).replace("0b", ""), 4), 2)
     elif cmd.commandType == CommandTypes.JUMPR:
         #0000 XXXX 0000 0011
         return int("0000" + addZeros(bin(cmd.args[0]).replace("0b", ""), 4) + "0000" + "0011", 2)
@@ -95,6 +95,7 @@ def numToCmd(n):
     c = (n>>4)&15
     b = (n>>8)&15
     a = (n>>12)&15
+    print(a, b, c, d)
     if a == 0:
         if d == 0:
             return Command(CommandTypes.HALT)

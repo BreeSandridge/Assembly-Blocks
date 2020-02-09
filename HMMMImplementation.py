@@ -4,8 +4,10 @@ from CommandTranslation import *
 import numpy as np
 import sys
 
-registers = np.ndarray(16, dtype=np.uint16)
-memory = np.ndarray(256, dtype=np.uint16)
+debug = True
+
+registers = np.ndarray(16, dtype=np.int16)
+memory = np.ndarray(256, dtype=np.int16)
 
 class Jump(Exception):
     def __init__(self, dest):
@@ -40,10 +42,12 @@ def runProgram(cmdList):
             break
     
 def setReg(x, n):
+    x &= 15
     if x != 0:
         registers[x] = n
 
-def getReg(x, n):
+def getReg(x):
+    x &= 15
     if x == 0:
         return 0
     else:
@@ -53,6 +57,9 @@ def executeInstruction(command):
     cmd = command.commandType
     cmdArgs = command.args
     numArgs = len(cmdArgs)
+    if debug:
+        print(registers[1:10])
+        print(registers[0], cmd, cmdArgs)
     if cmd is CommandTypes.HALT:
         assert numArgs == 0
         raise Halt
@@ -98,7 +105,7 @@ def executeInstruction(command):
     elif cmd is CommandTypes.JUMPR:
         assert numArgs == 1
         raise Jump(getReg(cmdArgs[0]))
-    elif cmd is CommandTypes.JEZQN:
+    elif cmd is CommandTypes.JEQZN:
         assert numArgs == 2
         if (getReg(cmdArgs[0]) == 0):
             raise Jump(cmdArgs[1])

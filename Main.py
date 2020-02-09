@@ -5,7 +5,8 @@ import GuiInteraction
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "GUI Text Button Example"
+SCREEN_TITLE = "hjgjh"
+
 
 class TextButton:
     """ Text-based button """

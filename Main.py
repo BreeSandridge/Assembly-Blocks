@@ -425,18 +425,21 @@ class MyGame(arcade.Window):
 
     def on_draw_inital_buttons(self):
         arcade.start_render()
-        button.draw()
-        
         instructions = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
         self.button_list.append(instructions)
+        instructions.draw()
         data = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
         self.button_list.append(data)
+        data.draw()
         arithmetic = Arithmetic((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 130), self.resume_program)
         self.button_list.append(arithmetic)
+        arithmetic.draw()
         jumps = Jumps((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 180), self.resume_program)
         self.button_list.append(jumps)
+        jumps.draw()
         memory = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
         self.button_list.append(memory)
+        memory.draw()
 
         if Instructions.pressed:
             instructions.visible = True

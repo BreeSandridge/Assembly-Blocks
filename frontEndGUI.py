@@ -1,7 +1,6 @@
-from arcade import TextButton
-from arcade.GUI import *
-import os
+"""from arcade import *
 import arcade
+import os
 
 arcade.open_window(600, 600, "Assembly Block")
 arcade.set_background_color(arcade.color.WHITE)
@@ -464,3 +463,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""

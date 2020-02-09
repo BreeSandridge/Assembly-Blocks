@@ -31,6 +31,7 @@ class TextButton:
         self.highlight_color = highlight_color
         self.shadow_color = shadow_color
         self.button_height = button_height
+        self.visible = False
 
     def draw(self):
         """ Draw the button """
@@ -107,9 +108,9 @@ def check_mouse_release_for_buttons(_x, _y, button_list):
             button.on_release()
 
 
-class SystemInstructions(TextButton):
+class Instructions(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, (.125 * SCREEN_WIDTH), (.066 * SCREEN_HEIGHT), "System Instructions", 10, "Arial")
+        super().__init__(center_x, center_y, 100, 40, "System Instructions", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -117,7 +118,7 @@ class SystemInstructions(TextButton):
         self.action_function()
 
 
-class SettingRegisterData(TextButton):
+class Data(TextButton):
     def __init__(self, center_x, center_y, action_function):
         super().__init__(center_x, center_y, 100, 40, "Setting Register Data", 10, "Arial")
         self.action_function = action_function
@@ -147,7 +148,7 @@ class Jumps(TextButton):
         self.action_function()
 
 
-class InteractingWithMemory(TextButton):
+class Memory(TextButton):
     def __init__(self, center_x, center_y, action_function):
         super().__init__(center_x, center_y, 100, 40, "Interacting with Memory", 10, "Arial")
         self.action_function = action_function
@@ -423,18 +424,19 @@ class MyGame(arcade.Window):
         # Create our on-screen GUI buttons
         self.button_list = []
 
-        play_button = SystemInstructions((.5 * SCREEN_WIDTH), 570, self.resume_program)
+        play_button = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
         self.button_list.append(play_button)
-        play_button = SettingRegisterData((.5 * SCREEN_WIDTH), 520, self.resume_program)
+        play_button = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
         self.button_list.append(play_button)
-        play_button = Arithmetic((.5 * SCREEN_WIDTH), 470, self.resume_program)
+        play_button = Arithmetic((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 130), self.resume_program)
         self.button_list.append(play_button)
-        play_button = Jumps((.5 * SCREEN_WIDTH), 420, self.resume_program)
+        play_button = Jumps((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 180), self.resume_program)
         self.button_list.append(play_button)
-        play_button = InteractingWithMemory((.5 * SCREEN_WIDTH), 370, self.resume_program)
+        play_button = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
         self.button_list.append(play_button)
 
-        if SystemInstructions:
+        if Instructions:
+            self.visible = True
             play_button = Halt(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Read(60, 570, self.resume_program)
@@ -444,7 +446,8 @@ class MyGame(arcade.Window):
             play_button = Nop(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
-        if SettingRegisterData:
+        if Data:
+            self.visible = True
             play_button = Setn(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Addn(60, 570, self.resume_program)
@@ -453,6 +456,7 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
         if Arithmetic:
+            self.visible = True
             play_button = Add(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Sub(60, 570, self.resume_program)
@@ -467,6 +471,7 @@ class MyGame(arcade.Window):
             self.button_list.append(play_button)
 
         if Jumps:
+            self.visible = True
             play_button = Jumpn(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Jumpr(60, 570, self.resume_program)
@@ -482,7 +487,8 @@ class MyGame(arcade.Window):
             play_button = Calln(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
-        if InteractingWithMemory:
+        if Memory:
+            self.visible = True
             play_button = Loadn(60, 570, self.resume_program)
             self.button_list.append(play_button)
             play_button = Storen(60, 570, self.resume_program)
@@ -492,10 +498,35 @@ class MyGame(arcade.Window):
             play_button = Storer(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
-    def on_draw(self):
-        arcade.start_render()
-        for button in self.button_list:
-            button.draw()
+    def on_draw_instructions(self):
+      if self.visible:
+          arcade.start_render()
+          for button in self.button_list:
+              button.draw()
+
+    def on_draw_data(self):
+      if self.visible:
+          arcade.start_render()
+          for button in self.button_list:
+              button.draw()
+
+    def on_draw_arithmetic(self):
+      if self.visible:
+          arcade.start_render()
+          for button in self.button_list:
+              button.draw()
+
+    def on_draw_jumps(self):
+      if self.visible:
+          arcade.start_render()
+          for button in self.button_list:
+              button.draw()
+
+    def on_draw_memory(self):
+      if self.visible:
+          arcade.start_render()
+          for button in self.button_list:
+              button.draw()
 
     def on_mouse_press(self, x, y, button, key_modifiers):
         """

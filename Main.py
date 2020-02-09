@@ -106,9 +106,50 @@ def check_mouse_release_for_buttons(_x, _y, button_list):
         if button.pressed:
             button.on_release()
 
-class StartTextButton(TextButton):
+
+class SystemInstructions(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "Start", 18, "Arial")
+        super().__init__(center_x, center_y, (.125 * SCREEN_WIDTH), (.066 * SCREEN_HEIGHT), "System Instructions", 10, "Arial")
+        self.action_function = action_function
+
+    def on_release(self):
+        super().on_release()
+        self.action_function()
+
+
+class SettingRegisterData(TextButton):
+    def __init__(self, center_x, center_y, action_function):
+        super().__init__(center_x, center_y, 100, 40, "Setting Register Data", 10, "Arial")
+        self.action_function = action_function
+
+    def on_release(self):
+        super().on_release()
+        self.action_function()
+
+
+class Arithmetic(TextButton):
+    def __init__(self, center_x, center_y, action_function):
+        super().__init__(center_x, center_y, 100, 40, "Arithmetic", 10, "Arial")
+        self.action_function = action_function
+
+    def on_release(self):
+        super().on_release()
+        self.action_function()
+
+
+class Jumps(TextButton):
+    def __init__(self, center_x, center_y, action_function):
+        super().__init__(center_x, center_y, 100, 40, "Jumps", 10, "Arial")
+        self.action_function = action_function
+
+    def on_release(self):
+        super().on_release()
+        self.action_function()
+
+
+class InteractingWithMemory(TextButton):
+    def __init__(self, center_x, center_y, action_function):
+        super().__init__(center_x, center_y, 100, 40, "Interacting with Memory", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -382,63 +423,79 @@ class MyGame(arcade.Window):
         # Create our on-screen GUI buttons
         self.button_list = []
 
-        play_button = StartTextButton(60, 570, self.resume_program)
+        play_button = SystemInstructions((.5 * SCREEN_WIDTH), 570, self.resume_program)
         self.button_list.append(play_button)
-        play_button = Halt(60, 570, self.resume_program)
+        play_button = SettingRegisterData((.5 * SCREEN_WIDTH), 520, self.resume_program)
         self.button_list.append(play_button)
-        play_button = Read(60, 570, self.resume_program)
+        play_button = Arithmetic((.5 * SCREEN_WIDTH), 470, self.resume_program)
         self.button_list.append(play_button)
-        play_button = Write(60, 570, self.resume_program)
+        play_button = Jumps((.5 * SCREEN_WIDTH), 420, self.resume_program)
         self.button_list.append(play_button)
-        play_button = Nop(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Setn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Addn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Copy(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Add(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Sub(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Neg(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Mul(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Div(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Mod(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Jumpn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Jumpr(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Jeqzn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Jnezn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Jgtzn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Jltzn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Calln(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Loadn(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Storen(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Loadr(60, 570, self.resume_program)
-        self.button_list.append(play_button)
-        play_button = Storer(60, 570, self.resume_program)
+        play_button = InteractingWithMemory((.5 * SCREEN_WIDTH), 370, self.resume_program)
         self.button_list.append(play_button)
 
+        if SystemInstructions:
+            play_button = Halt(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Read(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Write(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Nop(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+
+        if SettingRegisterData:
+            play_button = Setn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Addn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Copy(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+
+        if Arithmetic:
+            play_button = Add(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Sub(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Neg(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Mul(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Div(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Mod(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+
+        if Jumps:
+            play_button = Jumpn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Jumpr(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Jeqzn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Jnezn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Jgtzn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Jltzn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Calln(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+
+        if InteractingWithMemory:
+            play_button = Loadn(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Storen(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Loadr(60, 570, self.resume_program)
+            self.button_list.append(play_button)
+            play_button = Storer(60, 570, self.resume_program)
+            self.button_list.append(play_button)
 
     def on_draw(self):
         arcade.start_render()
         for button in self.button_list:
             button.draw()
-
 
     def on_mouse_press(self, x, y, button, key_modifiers):
         """

@@ -424,108 +424,108 @@ class MyGame(arcade.Window):
         # Create our on-screen GUI buttons
         self.button_list = []
 
-        play_button = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
+        instructions = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
         self.button_list.append(play_button)
-        play_button = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
+        data = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
         self.button_list.append(play_button)
-        play_button = Arithmetic((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 130), self.resume_program)
+        arithmetic = Arithmetic((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 130), self.resume_program)
         self.button_list.append(play_button)
-        play_button = Jumps((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 180), self.resume_program)
+        jumps = Jumps((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 180), self.resume_program)
         self.button_list.append(play_button)
-        play_button = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
+        memory = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
         self.button_list.append(play_button)
 
         if Instructions:
-            play_button.visible = True
-            play_button = Halt(60, 570, self.resume_program)
+            instructions.visible = True
+            halt = Halt(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Read(60, 570, self.resume_program)
+            read = Read(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Write(60, 570, self.resume_program)
+            write = Write(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Nop(60, 570, self.resume_program)
+            nop = Nop(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
         if Data:
-            play_button.visible = True
-            play_button = Setn(60, 570, self.resume_program)
+            data.visible = True
+            setn = Setn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Addn(60, 570, self.resume_program)
+            addn = Addn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Copy(60, 570, self.resume_program)
+            copy = Copy(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
         if Arithmetic:
-            play_button.visible = True
-            play_button = Add(60, 570, self.resume_program)
+            arithmetic.visible = True
+            add = Add(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Sub(60, 570, self.resume_program)
+            sub = Sub(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Neg(60, 570, self.resume_program)
+            neg = Neg(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Mul(60, 570, self.resume_program)
+            mul = Mul(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Div(60, 570, self.resume_program)
+            div = Div(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Mod(60, 570, self.resume_program)
+            mod = Mod(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
         if Jumps:
-            play_button.visible = True
-            play_button = Jumpn(60, 570, self.resume_program)
+            jumps.visible = True
+            jumpn = Jumpn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Jumpr(60, 570, self.resume_program)
+            jumpr = Jumpr(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Jeqzn(60, 570, self.resume_program)
+            jeqzn = Jeqzn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Jnezn(60, 570, self.resume_program)
+            jnezn = Jnezn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Jgtzn(60, 570, self.resume_program)
+            jgtzn = Jgtzn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Jltzn(60, 570, self.resume_program)
+            jltzn = Jltzn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Calln(60, 570, self.resume_program)
+            calln = Calln(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
         if Memory:
-            play_button.visible = True
-            play_button = Loadn(60, 570, self.resume_program)
+            memory.visible = True
+            loadn = Loadn(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Storen(60, 570, self.resume_program)
+            storen = Storen(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Loadr(60, 570, self.resume_program)
+            loadr = Loadr(60, 570, self.resume_program)
             self.button_list.append(play_button)
-            play_button = Storer(60, 570, self.resume_program)
+            storer = Storer(60, 570, self.resume_program)
             self.button_list.append(play_button)
 
     def on_draw_instructions(self):
-      if play_button.visible:
-          arcade.start_render()
-          for button in self.button_list:
+        arcade.start_render()
+        for button in self.button_list:
+            if instructions.visible:
               button.draw()
 
     def on_draw_data(self):
-      if play_button.visible:
-          arcade.start_render()
-          for button in self.button_list:
+        arcade.start_render()
+        for button in self.button_list:
+            if data.visible:
               button.draw()
 
     def on_draw_arithmetic(self):
-      if play_button.visible:
-          arcade.start_render()
-          for button in self.button_list:
+        arcade.start_render()
+        for button in self.button_list:
+            if arithmetic.visible:
               button.draw()
 
     def on_draw_jumps(self):
-      if play_button.visible:
-          arcade.start_render()
-          for button in self.button_list:
+        arcade.start_render()
+        for button in self.button_list:
+            if jumps.visible:
               button.draw()
 
     def on_draw_memory(self):
-      if play_button.visible:
-          arcade.start_render()
-          for button in self.button_list:
+        arcade.start_render()
+        for button in self.button_list:
+            if memory.visible:
               button.draw()
 
     def on_mouse_press(self, x, y, button, key_modifiers):

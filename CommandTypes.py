@@ -3,7 +3,7 @@ from enum import Enum
 
 class CommandTypes(Enum):
 
-    # System Snstructions
+    # System Instructions
     HALT = 0
     READ = 1
     WRITE = 2

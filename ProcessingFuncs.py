@@ -5,10 +5,11 @@ strokeColor = arcade.color.BLACK
 strokeThickness = 1
 isStroke = True
 inShape = False
+isFill = True
 vertexList = []
 
 def noFill():
-    isFill = false
+    isFill = False
 
 def fill(color):
     isFill = True
@@ -38,9 +39,9 @@ def circle(x, y, radius):
 
 def ellipse(x, y, rx, ry, **kwargs):
     if (isFill):
-        arcade.draw_ellipse_filled(x, y, radius, fillColor)
+        arcade.draw_ellipse_filled(x, y, rx, ry, fillColor)
     if (isStroke):
-        arcade.draw_ellipse_outline(x, y, radius, fillColor, strokeThickness)
+        arcade.draw_ellipse_outline(x, y, rx, ry, fillColor, strokeThickness)
 
 def polyline(vertices):
     if (isFill):
@@ -55,7 +56,7 @@ def rect(cx, cy, w, h):
         arcade.draw_polygon_outline(cx, cy, w, h, strokeColor, strokeThickness)
 
 def beginShape():
-    if (inShape):
+    if inShape:
         print("Error: already in shape.")
         return
     inShape = True
@@ -64,10 +65,9 @@ def addVertex(x, y):
     vertexList.append((x, y))
 
 def endShape():
-    if (!inShape):
+    if not inShape:
         print("Error: Not in shape.")
         return
     polyline(vertexList)
     inShape = False
     vertexList = []
-

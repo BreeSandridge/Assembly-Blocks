@@ -1,6 +1,3 @@
-import CommandTypes
-
-
 class Command:
     def __init__(self, command_type, *args):
         self.commandType = command_type

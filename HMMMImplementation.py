@@ -1,16 +1,29 @@
 from CommandTypes import *
 
-cmd1 = CommandTypes.HALT
+class Jump(Exception):
+    def __init__(self, dest):
+        Exception.__init__(self)
+        self.dest = dest
 
-if cmd1 is CommandTypes.HALT:
-    print("It's halt")
+class Halt(Exception):
+    pass
 
 def executeInstructionList(cmdList):
     cmdPtr = 0
     while True:
-        executeInstruction(cmdList[cmdPtr])
+        try:
+            executeInstruction(cmdList[cmdPtr])
+            cmdPtr += 1
+        except IndexError:
+            break
+        except Halt:
+            break
+        except Jump as jump:
+            cmdPtr = jump.dest
     
-def executeInstruction(cmd):
+def executeInstruction(command):
+    cmd = command.commandType
+    cmdArgs = command.args
     if cmd is CommandTypes.HALT:
         pass
     elif cmd is CommandTypes.READ:
@@ -38,7 +51,7 @@ def executeInstruction(cmd):
     elif cmd is CommandTypes.MOD:
         pass
     elif cmd is CommandTypes.JUMPN:
-        pass
+        raise Jump()
     elif cmd is CommandTypes.JUMPR:
         pass
     elif cmd is CommandTypes.JEZQN:

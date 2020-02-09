@@ -109,7 +109,7 @@ def check_mouse_release_for_buttons(_x, _y, button_list):
 
 class SystemInstructions(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "System Instructions", 18, "Arial")
+        super().__init__(center_x, center_y, (.125 * SCREEN_WIDTH), (.066 * SCREEN_HEIGHT), "System Instructions", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -119,7 +119,7 @@ class SystemInstructions(TextButton):
 
 class SettingRegisterData(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "Setting Register Data", 18, "Arial")
+        super().__init__(center_x, center_y, 100, 40, "Setting Register Data", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -129,7 +129,7 @@ class SettingRegisterData(TextButton):
 
 class Arithmetic(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "Arithmetic", 18, "Arial")
+        super().__init__(center_x, center_y, 100, 40, "Arithmetic", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -139,7 +139,7 @@ class Arithmetic(TextButton):
 
 class Jumps(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "Jumps", 18, "Arial")
+        super().__init__(center_x, center_y, 100, 40, "Jumps", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -149,7 +149,7 @@ class Jumps(TextButton):
 
 class InteractingWithMemory(TextButton):
     def __init__(self, center_x, center_y, action_function):
-        super().__init__(center_x, center_y, 100, 40, "Interacting with Memory", 18, "Arial")
+        super().__init__(center_x, center_y, 100, 40, "Interacting with Memory", 10, "Arial")
         self.action_function = action_function
 
     def on_release(self):
@@ -423,15 +423,15 @@ class MyGame(arcade.Window):
         # Create our on-screen GUI buttons
         self.button_list = []
 
-        play_button = SystemInstructions(300, 570, self.resume_program)
+        play_button = SystemInstructions((.5 * SCREEN_WIDTH), 570, self.resume_program)
         self.button_list.append(play_button)
-        play_button = SettingRegisterData(300, 520, self.resume_program)
+        play_button = SettingRegisterData((.5 * SCREEN_WIDTH), 520, self.resume_program)
         self.button_list.append(play_button)
-        play_button = Arithmetic(300, 490, self.resume_program)
+        play_button = Arithmetic((.5 * SCREEN_WIDTH), 470, self.resume_program)
         self.button_list.append(play_button)
-        play_button = Jumps(300, 460, self.resume_program)
+        play_button = Jumps((.5 * SCREEN_WIDTH), 420, self.resume_program)
         self.button_list.append(play_button)
-        play_button = InteractingWithMemory(300, 430, self.resume_program)
+        play_button = InteractingWithMemory((.5 * SCREEN_WIDTH), 370, self.resume_program)
         self.button_list.append(play_button)
 
         if SystemInstructions:

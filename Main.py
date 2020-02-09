@@ -424,6 +424,10 @@ class MyGame(arcade.Window):
         # Create our on-screen GUI buttons
         self.button_list = []
 
+    def on_draw_inital_buttons(self):
+        arcade.start_render()
+        button.draw()
+        
         instructions = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
         self.button_list.append(instructions)
         data = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
@@ -435,7 +439,7 @@ class MyGame(arcade.Window):
         memory = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
         self.button_list.append(memory)
 
-        if Instructions:
+        if Instructions.pressed:
             instructions.visible = True
             halt = Halt(60, 570, self.resume_program)
             self.button_list.append(halt)
@@ -446,7 +450,7 @@ class MyGame(arcade.Window):
             nop = Nop(60, 570, self.resume_program)
             self.button_list.append(nop)
 
-        if Data:
+        if Data.pressed:
             data.visible = True
             setn = Setn(60, 570, self.resume_program)
             self.button_list.append(setn)
@@ -455,7 +459,7 @@ class MyGame(arcade.Window):
             copy = Copy(60, 570, self.resume_program)
             self.button_list.append(copy)
 
-        if Arithmetic:
+        if Arithmetic.pressed:
             arithmetic.visible = True
             add = Add(60, 570, self.resume_program)
             self.button_list.append(add)
@@ -470,7 +474,7 @@ class MyGame(arcade.Window):
             mod = Mod(60, 570, self.resume_program)
             self.button_list.append(mod)
 
-        if Jumps:
+        if Jumps.pressed:
             jumps.visible = True
             jumpn = Jumpn(60, 570, self.resume_program)
             self.button_list.append(jumpn)
@@ -487,7 +491,7 @@ class MyGame(arcade.Window):
             calln = Calln(60, 570, self.resume_program)
             self.button_list.append(calln)
 
-        if Memory:
+        if Memory.pressed:
             memory.visible = True
             loadn = Loadn(60, 570, self.resume_program)
             self.button_list.append(loadn)

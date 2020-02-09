@@ -46,7 +46,7 @@ def setReg(x, n):
 def getReg(x, n):
     if x == 0:
         return 0
-    else
+    else:
         return registers[x]
 
 def executeInstruction(command):
@@ -126,13 +126,13 @@ def executeInstruction(command):
         setReg(cmdArgs[0], memory[getReg(cmdArgs[1])])
     elif cmd is CommandTypes.LOADN:
         assert numArgs == 2
-        setReg(cmdArgs[0]], memory[cmdArgs[1]])
+        setReg(cmdArgs[0], memory[cmdArgs[1]])
     elif cmd is CommandTypes.STOREN:
         assert numArgs == 2
         memory[cmdArgs[1]] = getReg(cmdArgs[0])
     elif cmd is CommandTypes.LOADR:
         assert numArgs == 2
-        setReg(cmdArgs[0]], memory[getReg(cmdArgs[1])])
+        setReg(cmdArgs[0], memory[getReg(cmdArgs[1])])
     elif cmd is CommandTypes.STORER:
         assert numArgs == 2
         memory[getReg(cmdArgs[1])] = getReg(cmdArgs[0])

@@ -423,23 +423,27 @@ class MyGame(arcade.Window):
         # Create our on-screen GUI buttons
         self.button_list = []
 
-    def on_draw_inital_buttons(self):
-        arcade.start_render()
+        # def on_draw_inital_buttons(self):
+        # arcade.start_render()
         instructions = Instructions((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 30), self.resume_program)
         self.button_list.append(instructions)
-        instructions.draw()
+        # instructions.draw()
         data = Data((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 80), self.resume_program)
         self.button_list.append(data)
-        data.draw()
+        # data.draw()
         arithmetic = Arithmetic((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 130), self.resume_program)
         self.button_list.append(arithmetic)
-        arithmetic.draw()
+        # arithmetic.draw()
         jumps = Jumps((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 180), self.resume_program)
         self.button_list.append(jumps)
-        jumps.draw()
+        # jumps.draw()
         memory = Memory((.5 * SCREEN_WIDTH), (SCREEN_HEIGHT - 230), self.resume_program)
         self.button_list.append(memory)
-        memory.draw()
+        # memory.draw()
+    def on_draw_inital_buttons(self):
+        arcade.start_render()
+        for button in self.button_list:
+            button.draw()
 
         if Instructions.pressed:
             instructions.visible = True
@@ -503,6 +507,7 @@ class MyGame(arcade.Window):
             self.button_list.append(loadr)
             storer = Storer(60, 570, self.resume_program)
             self.button_list.append(storer)
+
 
     def on_draw_instructions(self):
         arcade.start_render()

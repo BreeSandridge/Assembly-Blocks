@@ -33,8 +33,14 @@ class MyGame(arcade.Window):
                 button_dragged.position_y = button_static.y+button_static.height-1
 
     def duplicateButton(button):
-        buttonNew = copy.deepcopy(button)
+        if button == arcade.key.P:
+            # PRESS P TO DUPLICATE
+            buttonNew = copy.deepcopy(button)
         #call this if ctrl+c (identify the button), ctrl+v (actually implement) or use some other way
+
+    def deleteButton(button):
+        if button == arcade.key.DELETE:
+            del button
 
     def whichToClick(button_dragged, buttonList):
         for button in buttonList:
@@ -86,3 +92,4 @@ class Buttons:
 class NewButtons(Buttons):
     def __init__(self, center_x, center_y):
         super().__init__(center_x, center_y, 10, 60, 18, "Arial")
+

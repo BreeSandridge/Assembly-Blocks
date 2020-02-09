@@ -4,7 +4,7 @@ from CommandTranslation import *
 import numpy as np
 import sys
 
-debug = True
+debug = False
 
 registers = np.ndarray(16, dtype=np.int16)
 memory = np.ndarray(256, dtype=np.int16)
@@ -25,6 +25,8 @@ def runProgram(cmdList):
     while True:
         cmdPtr = registers[0]
         try:
+            if debug:
+                print(bin(memory[cmdPtr].astype(np.uint16)))
             executeInstruction(numToCmd(memory[cmdPtr]))
             registers[0] += 1
         except Jump as jump:

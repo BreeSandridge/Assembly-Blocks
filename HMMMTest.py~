@@ -1,6 +1,0 @@
-from HMMMImplementation import *
-
-myList = [Command(CommandTypes.READ, 0),
-          Command(CommandTypes.WRITE, 0)]
-
-runProgram(myList)

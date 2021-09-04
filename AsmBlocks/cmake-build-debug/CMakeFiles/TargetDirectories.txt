@@ -1,3 +1,0 @@
-C:/Users/peyto/CLionProjects/AsmBlocks/cmake-build-debug/CMakeFiles/AsmBlocks.dir
-C:/Users/peyto/CLionProjects/AsmBlocks/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/peyto/CLionProjects/AsmBlocks/cmake-build-debug/CMakeFiles/rebuild_cache.dir
